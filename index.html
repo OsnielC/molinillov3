@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Molinillo — Café, Plantas & Más. Un rincón lleno de vida, aroma y color." />
+  <title>Molinillo — Café, Plantas & Más</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="molinillo.css" />
+</head>
+<body>
+
+  <!-- FONDO PATRÓN HOJAS -->
+  <div class="leaf-bg" aria-hidden="true"></div>
+
+  <!-- HOJAS FLOTANTES SVG -->
+  <svg id="leaf-svg" aria-hidden="true">
+    <g id="leaves-group"></g>
+  </svg>
+
+  <!-- ═══════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════ -->
+  <header>
+    <nav id="navbar">
+      <a href="./index.html" class="gal-nav-logo">
+      <div class="nav-logo">
+        <svg class="nav-logo-svg" viewBox="0 0 80 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Left dark green leaf -->
+          <g transform="rotate(-25 22 38)">
+            <ellipse cx="22" cy="38" rx="11" ry="22" fill="#1e5929"/>
+            <line x1="22" y1="17" x2="22" y2="58" stroke="#c4a355" stroke-width="1.3" stroke-linecap="round"/>
+            <line x1="22" y1="28" x2="13" y2="34" stroke="#c4a355" stroke-width="0.7" stroke-linecap="round"/>
+            <line x1="22" y1="36" x2="12" y2="42" stroke="#c4a355" stroke-width="0.7" stroke-linecap="round"/>
+            <line x1="22" y1="44" x2="14" y2="49" stroke="#c4a355" stroke-width="0.7" stroke-linecap="round"/>
+            <line x1="22" y1="28" x2="31" y2="34" stroke="#c4a355" stroke-width="0.7" stroke-linecap="round"/>
+            <line x1="22" y1="36" x2="32" y2="42" stroke="#c4a355" stroke-width="0.7" stroke-linecap="round"/>
+            <line x1="22" y1="44" x2="30" y2="49" stroke="#c4a355" stroke-width="0.7" stroke-linecap="round"/>
+          </g>
+          <!-- Right dark green leaf -->
+          <g transform="rotate(25 58 38)">
+            <ellipse cx="58" cy="38" rx="11" ry="22" fill="#1e5929"/>
+            <line x1="58" y1="17" x2="58" y2="58" stroke="#c4a355" stroke-width="1.3" stroke-linecap="round"/>
+            <line x1="58" y1="28" x2="49" y2="34" stroke="#c4a355" stroke-width="0.7" stroke-linecap="round"/>
+            <line x1="58" y1="36" x2="48" y2="42" stroke="#c4a355" stroke-width="0.7" stroke-linecap="round"/>
+            <line x1="58" y1="44" x2="50" y2="49" stroke="#c4a355" stroke-width="0.7" stroke-linecap="round"/>
+            <line x1="58" y1="28" x2="67" y2="34" stroke="#c4a355" stroke-width="0.7" stroke-linecap="round"/>
+            <line x1="58" y1="36" x2="68" y2="42" stroke="#c4a355" stroke-width="0.7" stroke-linecap="round"/>
+            <line x1="58" y1="44" x2="66" y2="49" stroke="#c4a355" stroke-width="0.7" stroke-linecap="round"/>
+          </g>
+          <!-- Center nude/pink leaf -->
+          <ellipse cx="40" cy="18" rx="9" ry="16" fill="#d4b5a0"/>
+          <line x1="40" y1="3" x2="40" y2="33" stroke="#b8906a" stroke-width="1.1" stroke-linecap="round"/>
+          <line x1="40" y1="11" x2="33" y2="17" stroke="#b8906a" stroke-width="0.7" stroke-linecap="round"/>
+          <line x1="40" y1="18" x2="32" y2="24" stroke="#b8906a" stroke-width="0.7" stroke-linecap="round"/>
+          <line x1="40" y1="25" x2="34" y2="30" stroke="#b8906a" stroke-width="0.7" stroke-linecap="round"/>
+          <line x1="40" y1="11" x2="47" y2="17" stroke="#b8906a" stroke-width="0.7" stroke-linecap="round"/>
+          <line x1="40" y1="18" x2="48" y2="24" stroke="#b8906a" stroke-width="0.7" stroke-linecap="round"/>
+          <line x1="40" y1="25" x2="46" y2="30" stroke="#b8906a" stroke-width="0.7" stroke-linecap="round"/>
+        </svg>
+        <span class="nav-logo-text">Molinillo</span>
+      </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#ubicacion">Ubicación</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ═══════════════════════════════════
+       HERO
+  ═══════════════════════════════════ -->
+  <section id="hero" aria-label="Portada principal">
+    <div class="hero-deco-circle c1" aria-hidden="true"></div>
+    <div class="hero-deco-circle c2" aria-hidden="true"></div>
+    <div class="hero-blob b1" aria-hidden="true"></div>
+    <div class="hero-blob b2" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag">🌿 Café · Plantas · Amor</div>
+      <h1 class="hero-title">
+        Molinillo
+        <em class="line2">Café & Plantas</em>
+        <span class="line3">& Más ✨</span>
+      </h1>
+      <p class="hero-subtitle">Gastronomía, plantas y buen café — una experiencia multisensorial 🌱</p>
+      <div class="hero-cta">
+        <a href="#menu" class="btn-primary">Ver Menú</a>
+        <a href="#contacto" class="btn-secondary">Visítanos</a>
+      </div>
+    </div>
+ <!--
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  -->
+  </section>
+
+  <!-- ═══════════════════════════════════
+       NOSOTROS
+  ═══════════════════════════════════ -->
+  <section id="nosotros" aria-labelledby="nosotros-title">
+    <div class="nosotros-grid">
+
+      <div class="nosotros-image-wrap reveal">
+        <div class="nosotros-img-main">
+          <img src="./images/DSC_5281.JPG" alt="Café Molinillo" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;" />
+        </div>
+        <div class="nosotros-badge" aria-hidden="true">
+          <div class="nosotros-badge-text">☕ CAFÉ<br>🌱 PLANTAS<br>💚 AMOR</div>
+        </div>
+      </div>
+
+      <div class="nosotros-text reveal">
+        <span class="section-tag">¿Quiénes somos?</span>
+        <h2 id="nosotros-title">Un espacio<br><span>vivo y aromático</span></h2>
+        <p>En <strong>Molinillo</strong> encontrarás mucho más que un café. Somos el refugio donde la gastronomía, las plantas y el buen café se fusionan para crear una <em>experiencia multisensorial</em> única. Este espacio nació del sueño de Andrea, una joven que decidió seguir su verdadera pasión: la cocina y las plantas.</p>
+        <p>Andrea heredó de sus abuelos el amor por las plantas y selecciona con esmero cada una de ellas para ofrecerte algo que va mucho más allá de la comida. Nuestro equipo también te asesora sobre el cuidado de tus nuevas adquisiciones, creando un vínculo cercano con cada visitante. 🌺</p>
+        <p>Somos un espacio <strong>pet friendly</strong> 🐾, con juegos de mesa para compartir entre risas, y música en vivo que acompaña la velada. Un punto de encuentro para amigos, familias y parejas, perfecto para cualquier ocasión. 💚</p>
+        <div class="nosotros-pills">
+          <span class="pill">🌵 Venta de plantas</span>
+          <span class="pill terracota">☕ Café de Talea de Castro</span>
+            <!--<span class="pill latte">🎵 Música en vivo</span> -->
+          <span class="pill">🐾 Pet friendly</span>
+          <span class="pill terracota">🎲 Juegos de mesa</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       MENÚ
+  ═══════════════════════════════════ -->
+  <section id="menu" aria-labelledby="menu-title">
+
+    <div class="section-header reveal">
+      <span class="section-tag">Para cada momento del día</span>
+      <h2 id="menu-title" class="section-title">Nuestro <em>Menú</em></h2>
+      <div class="section-divider">
+        <div class="line"></div>
+        <span class="icon" aria-hidden="true">🍽️</span>
+        <div class="line"></div>
+      </div>
+    </div>
+
+    <!-- Tabs de categorías -->
+    <div class="menu-tabs reveal" role="tablist" aria-label="Categorías del menú">
+      <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="desayunos">🌅 Desayunos</button>
+      <button class="tab-btn"        role="tab" aria-selected="false" data-tab="comidas">🌿 Comidas</button>
+      <button class="tab-btn"        role="tab" aria-selected="false" data-tab="bebidas">☕ Bebidas</button>
+      <button class="tab-btn"        role="tab" aria-selected="false" data-tab="postres">🍰 Postres</button>
+    </div>
+
+    <!-- DESAYUNOS / CAFÉS CALIENTES -->
+    <div class="menu-panel active" id="tab-desayunos" role="tabpanel">
+      <div class="menu-grid">
+
+        <article class="menu-card featured">
+          <div class="menu-card-emoji" aria-hidden="true">☕</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Café de Talea de Castro</h3>
+              <span class="menu-price">$35</span>
+            </div>
+            <p>Americano, café de la casa o espresso. Cultivado en la sierra oaxaqueña, reconocido por su suavidad y sabor excepcional. El alma de Molinillo.</p>
+            <span class="menu-tag">⭐ Café de especialidad</span>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🥛</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Latte / Capuccino</h3>
+              <span class="menu-price">$50</span>
+            </div>
+            <p>Clásicos impecables. También disponibles con sabores: nuez, rompope, cajeta, vainilla, caramel o crema irlandesa.</p>
+            <span class="menu-tag">Con sabor $65</span>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🫖</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Tisanas Calientes</h3>
+              <span class="menu-price">$60</span>
+            </div>
+            <p>Amor en rosas (fresa, arándano, manzana y pétalos de rosa) · Verde tropical (kiwi, piña y manzana) · Dorado amanecer (durazno, mango y piña).</p>
+            <span class="menu-tag">Tisana fría +$10</span>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🍵</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Tés Artesanales</h3>
+              <span class="menu-price">$38</span>
+            </div>
+            <p>Hechos en casa y endulzados con miel de abeja. Manzanilla, manzana canela, té verde, té limón o hiervabuena. Naturales y reconfortantes.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🍫</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Chocolates</h3>
+              <span class="menu-price">$50–$65</span>
+            </div>
+            <p>Chocolate de agua ($50) · Chocolate de leche ($55) · Chocolate de leche con crema batida ($65). Cremosos y reconfortantes.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🍵</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Matcha / Chaí / Taro</h3>
+              <span class="menu-price">$60–$68</span>
+            </div>
+            <p>Matcha latte ($68) · Chaí latte ($60) · Chaí latte vainilla ($65) · Taro ($60). Bebidas calientes con carácter y personalidad.</p>
+            <span class="menu-tag">🌿 Tendencia</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- COMIDAS / TARDE-NOCHE -->
+    <div class="menu-panel" id="tab-comidas" role="tabpanel">
+      <div class="menu-grid">
+
+        <article class="menu-card featured">
+          <div class="menu-card-emoji" aria-hidden="true">🍔</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Hamburguesa Oaxaqueña</h3>
+              <span class="menu-price">$165</span>
+            </div>
+            <p>Queso americano, quesillo, chapulines, guacamole, pedacitos de chicharrón, jamón y verduras. Un homenaje a Oaxaca en cada mordida. Incluye papas a la francesa.</p>
+            <span class="menu-tag">⭐ Orgullo de la casa</span>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🍔</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Hamburguesa Molinillo</h3>
+              <span class="menu-price">$155</span>
+            </div>
+            <p>Queso americano, mozzarella-quesillo, jamón, tocino, salchicha, aros de cebolla y verduras. La más completa y generosa de la carta.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🌶️</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>La Picosita</h3>
+              <span class="menu-price">$155</span>
+            </div>
+            <p>Queso americano, jamón, mozzarella-quesillo, tocino, salsa mango habanero, salsa buffalo, mayonesa-chipotle y jalapeño frito. Para los valientes.</p>
+            <span class="menu-tag">🔥 Nivel picante</span>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🥖</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Baguettes</h3>
+              <span class="menu-price">$130–$149</span>
+            </div>
+            <p>Incluyen ensalada. Con pasta de frijol, mayonesa, chimichurri, queso mozzarella-quesillo y chiles en vinagre. Opciones: Hawaiano, Pechuga, Cecina, Salami, Carnes frías.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🥗</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Ensaladas Frescas</h3>
+              <span class="menu-price">$105–$138</span>
+            </div>
+            <p>De la casa $105 · Queso de cabra $125 · Jamón serrano $135 · Suculenta $138 · Ensalada especial $135. Todas con aderezos artesanales y crutones.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🍗</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Alitas</h3>
+              <span class="menu-price">$120–$230</span>
+            </div>
+            <p>Sabores: mango habanero, BBQ o búfalo. 6 piezas $120 · 8 piezas $150 · 12 piezas $230. Todas incluyen papas a la francesa. ¡Perfectas para compartir!</p>
+            <span class="menu-tag">🌿 Para compartir</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- BEBIDAS -->
+    <div class="menu-panel" id="tab-bebidas" role="tabpanel">
+      <div class="menu-grid">
+
+        <article class="menu-card featured">
+          <div class="menu-card-emoji" aria-hidden="true">🧋</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Frappes (460 ml)</h3>
+              <span class="menu-price">$70–$90</span>
+            </div>
+            <p>Capuccino $70 · Cajeta $75 · Taro $75 · Nutella $78 · Oreo $78 · Fresa $75 · Conejo Turín $80 · Ferrero $83 · Magnum $90 · KitKat $80 · Biscoff $85. ¡Creatividad en cada sorbo!</p>
+            <span class="menu-tag">⭐ Los más pedidos</span>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🥤</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Smoothies Base Yogurt (460 ml)</h3>
+              <span class="menu-price">$70–$75</span>
+            </div>
+            <p>Fresa $70 · Frutos rojos $75 · Mango $70 · Tropical (mango, plátano y piña) $75 · Rosa coqueto (fresa, plátano y nuez) $75 · Molinillo (guayaba, fresa y mango) $75.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🍹</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Chamoyadas (500 ml)</h3>
+              <span class="menu-price">$65–$80</span>
+            </div>
+            <p>Con chamoy de la casa. Tamarindo $65 · Pepino-limón $65 · Piña $65 · Mango $70 · Fresa $70 · Frutos rojos $80 · Maracuyá $75. Extra perlas explosivas +$10.</p>
+            <span class="menu-tag">🌿 Con chamoy casero</span>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🍵</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Cafés y Lattes Fríos (460 ml)</h3>
+              <span class="menu-price">$70–$85</span>
+            </div>
+            <p>Chaí latte $70 · Chaí latte vainilla $75 · Taro $70 · Dirty taro $78 · Matcha latte $75 · Matcha mazapán $85 · Biscoff $85. Con perlas explosivas +$10.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🫧</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Sodas Italianas con Perlas (480 ml)</h3>
+              <span class="menu-price">$60</span>
+            </div>
+            <p>Frutos rojos · Limonada rosa · Mango · Manzana verde · Maracuyá · Mora azul. Todas $60. Extra perlas explosivas +$10. Refrescantes y coloridas.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🍸</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Coctelería</h3>
+              <span class="menu-price">$60–$99</span>
+            </div>
+            <p>Mezcal espadín de Sola de Vega $60 · Mezcalinas $80–$88 · Mojito tradicional $78 · Margarita frozen $80–$85 · Gin tonic $99 · Clericot $90 · Cervezas artesanales $80.</p>
+            <span class="menu-tag">🌿 Desde las 14:30 hrs</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- POSTRES & CREPAS -->
+    <div class="menu-panel" id="tab-postres" role="tabpanel">
+      <div class="menu-grid">
+
+        <article class="menu-card featured">
+          <div class="menu-card-emoji" aria-hidden="true">🌵</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Crepa / Waffle Cactus</h3>
+              <span class="menu-price">$105</span>
+            </div>
+            <p>Queso philadelphia, manzana, lechera, arándanos, helado de vainilla y un toque de canela. La más icónica de la carta — elige crepa o waffle. 🌵</p>
+            <span class="menu-tag">⭐ La más pedida</span>
+          </div>
+        </article>
+
+        <article class="menu-card featured">
+          <div class="menu-card-emoji" aria-hidden="true">🌸</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Crepa / Waffle Molinillo</h3>
+              <span class="menu-price">$125</span>
+            </div>
+            <p>Queso philadelphia, fresas con crema, Hershey's, nuez y glass. El sabor de la casa en cada bocado. Disponible en crepa o waffle.</p>
+            <span class="menu-tag">💚 Favorita del equipo</span>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🍫</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Crepa / Waffle Ferrero</h3>
+              <span class="menu-price">$125</span>
+            </div>
+            <p>Queso philadelphia, nutella, almendras, ferrero rocher, crema batida y plátano. Indulgente y decadente. ¡Un postre de lujo!</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🍪</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Crepa / Waffle Oreo</h3>
+              <span class="menu-price">$110</span>
+            </div>
+            <p>Queso philadelphia, galletas Oreo, fresas, Hershey's, lechera y glass. Clásico irresistible para los amantes del chocolate y la vainilla.</p>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🏺</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Macetita con Cactus</h3>
+              <span class="menu-price">$95</span>
+            </div>
+            <p>Cheesecake frío con galletas Oreo, cactus sabor pistache y fresas. Presentado en macetita, visualmente irresistible y delicioso.</p>
+            <span class="menu-tag">📸 Muy instagrameable</span>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <div class="menu-card-emoji" aria-hidden="true">🍌</div>
+          <div class="menu-card-info">
+            <div class="menu-card-header">
+              <h3>Banana Split Especial</h3>
+              <span class="menu-price">$99</span>
+            </div>
+            <p>Plátano macho frito acompañado de helado de vainilla, crema batida, froot loops, chispas de chocolate y lechera. Nostálgico y delicioso.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <p class="menu-note reveal">🌿 Menú diseñado por la chef <strong>Alejandra</strong>. Servicio de desayunos desde las 8:00 hrs y tarde-noche a partir de las 14:30 hrs.</p>
+
+    <div class="menu-cta reveal">
+      <a href="Menu_Molinillo_tarde_Enero.pdf" class="btn-menu-completo" target="_blank" rel="noopener noreferrer">
+        🍽️ Ver Menú Completo
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════
+       GALERÍA
+  ═══════════════════════════════════ -->
+  <section id="galeria" aria-labelledby="galeria-title">
+
+    <div class="section-header reveal">
+      <span class="section-tag">Vive la experiencia Molinillo</span>
+      <h2 id="galeria-title" class="section-title">Nuestra <em>Galería</em></h2>
+      <div class="section-divider">
+        <div class="line"></div>
+        <span class="icon" aria-hidden="true">🌿</span>
+        <div class="line"></div>
+      </div>
+    </div>
+
+    <div class="galeria-grid reveal">
+      <div class="gal-item"><div class="gal-inner" aria-hidden="true"><img src="./images/DSC_5209.JPG" alt=""></div><div class="gal-overlay"><span>Cactus & Suculentas</span></div></div>
+      <div class="gal-item"><div class="gal-inner" aria-hidden="true"><img src="./images/DSC_5281.JPG" alt=""></div><div class="gal-overlay"><span>Café de Especialidad</span></div></div>
+      <div class="gal-item"><div class="gal-inner" aria-hidden="true"><img src="./images/DSC_5247.JPG" alt=""></div><div class="gal-overlay"><span>Plantas Tropicales</span></div></div>
+      <div class="gal-item"><div class="gal-inner" aria-hidden="true"><img src="./images/DSC_5253.JPG" alt=""></div><div class="gal-overlay"><span>Arreglos Florales</span></div></div>
+      <div class="gal-item"><div class="gal-inner" aria-hidden="true"><img src="./images/DSC_5288.JPG" alt=""></div><div class="gal-overlay"><span>Plantas de Interior</span></div></div>
+      <div class="gal-item"><div class="gal-inner" aria-hidden="true"><img src="./images/DSC_5292.JPG" alt=""></div><div class="gal-overlay"><span>Infusiones & Tés</span></div></div>
+      <div class="gal-item"><div class="gal-inner" aria-hidden="true"><img src="./images/DSC_5312.JPG" alt=""></div><div class="gal-overlay"><span>Nuestro Espacio</span></div></div>
+    </div>
+
+    <div class="galeria-btns reveal">
+      <a href="./galeria.html" class="btn-galeria-completa">📷 Ver Galería Completa</a>
+      <a href="https://www.instagram.com/molinillo_cafeplantas_y_mas/" target="_blank" rel="noopener noreferrer" class="btn-galeria-ig">📸 @molinillo_cafeplantas_y_mas</a>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════
+       UBICACIÓN
+  ═══════════════════════════════════ -->
+  <section id="ubicacion" aria-labelledby="ubicacion-title">
+
+    <div class="section-header reveal">
+      <span class="section-tag">Encuéntranos</span>
+      <h2 id="ubicacion-title" class="section-title">Nuestra <em>Ubicación</em></h2>
+      <div class="section-divider">
+        <div class="line"></div>
+        <span class="icon" aria-hidden="true">📍</span>
+        <div class="line"></div>
+      </div>
+    </div>
+
+    <div class="ubicacion-wrap">
+
+      <div class="mapa-iframe-wrap reveal" aria-label="Mapa de ubicación Molinillo">
+        <iframe
+          src="https://maps.google.com/maps?q=Calicanto+11+San+Antonio+de+la+Cal+Oaxaca+Mexico&output=embed&z=16&hl=es"
+          width="100%"
+          height="400"
+          frameborder="0"
+          style="border:0; border-radius: 28px; display:block;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación Molinillo Café, Plantas & Más">
+        </iframe>
+        <a href="https://maps.google.com/maps?q=Calicanto+11+San+Antonio+de+la+Cal+Oaxaca+Mexico" target="_blank" rel="noopener noreferrer" class="mapa-btn-overlay">
+          📍 Abrir en Google Maps
+        </a>
+      </div>
+
+      <div class="ubicacion-info reveal">
+        <h3>Ven a visitarnos <span aria-hidden="true">🌿</span></h3>
+
+        <div class="info-card">
+          <div class="info-icon" aria-hidden="true">📍</div>
+          <div>
+            <h4>Dirección</h4>
+            <p>Calle Calicanto 11, 3ª Sección<br><strong>San Antonio de la Cal, Oaxaca</strong><br><em>Cerca de Walmart Símbolos Patrios</em></p>
+          </div>
+        </div>
+
+        <div class="info-card terracota-card">
+          <div class="info-icon" aria-hidden="true">🕐</div>
+          <div>
+            <h4>Horario</h4>
+            <p><strong>Miércoles a Lunes</strong><br>8:00 – 22:30 hrs<br><span style="color:#c75b3a;font-weight:700;">Martes: Cerrado</span></p>
+          </div>
+        </div>
+
+        <div class="info-card cafe-card">
+          <div class="info-icon" aria-hidden="true">🚗</div>
+          <div>
+            <h4>Cómo llegar</h4>
+            <p>Cerca de Walmart Símbolos Patrios.<br>Estacionamiento disponible en la zona.<br>Accesible en transporte público. 🚌</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════
+       CONTACTO & HORARIOS
+  ═══════════════════════════════════ -->
+  <section id="contacto" aria-labelledby="contacto-title">
+
+    <div class="section-header reveal">
+      <span class="section-tag">Estamos aquí para ti</span>
+      <h2 id="contacto-title" class="section-title contacto-title">Contacto & <em>Horarios</em></h2>
+      <div class="section-divider contacto-divider">
+        <div class="line"></div>
+        <span class="icon" aria-hidden="true">☕</span>
+        <div class="line"></div>
+      </div>
+    </div>
+
+    <div class="contacto-grid reveal">
+
+      <div class="contacto-card highlight">
+        <div class="card-icon" aria-hidden="true">🕐</div>
+        <span class="card-label">Horarios</span>
+        <div class="card-title">Estamos abiertos</div>
+        <table class="horarios-table" aria-label="Horario de atención">
+          <tbody>
+            <tr class="horario-row"><td class="horario-dia">Miércoles</td><td class="horario-hora">8:00 – 22:30</td></tr>
+            <tr class="horario-row"><td class="horario-dia">Jueves</td><td class="horario-hora">8:00 – 22:30</td></tr>
+            <tr class="horario-row"><td class="horario-dia">Viernes</td><td class="horario-hora">8:00 – 22:30</td></tr>
+            <tr class="horario-row"><td class="horario-dia">Sábado</td><td class="horario-hora">8:00 – 22:30</td></tr>
+            <tr class="horario-row"><td class="horario-dia">Domingo</td><td class="horario-hora">8:00 – 22:30</td></tr>
+            <tr class="horario-row"><td class="horario-dia">Lunes</td><td class="horario-hora">8:00 – 22:30</td></tr>
+            <tr class="horario-row"><td class="horario-dia">Martes</td><td class="horario-hora cerrado">Cerrado</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="contacto-card">
+        <div class="card-icon" aria-hidden="true">📬</div>
+        <span class="card-label">Contáctanos</span>
+        <div class="card-title">Escríbenos</div>
+        <div class="card-body">
+          <p>💬 <strong>Instagram:</strong><br>
+            <a href="https://www.instagram.com/molinillo_cafeplantas_y_mas/" target="_blank" rel="noopener noreferrer">@molinillo_cafeplantas_y_mas</a>
+          </p>
+          <p>📱 <strong>WhatsApp:</strong><br>Consúltanos por DM de Instagram</p>
+          <p>📧 <strong>Email:</strong><br>Disponible por Instagram</p>
+        </div>
+      </div>
+
+      <div class="contacto-card">
+        <div class="card-icon" aria-hidden="true">🌿</div>
+        <span class="card-label">Experiencia</span>
+        <div class="card-title">¿Qué ofrecemos?</div>
+        <div class="card-body">
+          <p>🌵 Venta y asesoría de plantas de interior y exterior</p>
+          <p>☕ Café de Talea de Castro y bebidas artesanales</p>
+          <p>🥞 Crepas, wafles, desayunos y comidas</p>
+          <p>🍹 Coctelería artesanal (desde las 14:30)</p>
+          <p>🎵 Música en vivo</p>
+          <p>🎲 Juegos de mesa para compartir</p>
+          <p>🐾 Pet friendly — ¡trae a tu mascota!</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FORMULARIO -->
+    <div class="form-area reveal">
+      <h3>Envíanos un <em>Mensaje</em> 🌱</h3>
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Tu nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="¿Cómo te llamas?" required />
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+52 000 000 0000" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="asunto">¿En qué te podemos ayudar?</label>
+          <select id="asunto" name="asunto">
+            <option value="">Selecciona una opción</option>
+            <option value="plantas">Información sobre plantas</option>
+            <option value="reserva">Reservar mesa en el café</option>
+            <option value="arreglo">Arreglo floral para evento</option>
+            <option value="pedido">Pedido especial</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Tu mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos lo que necesitas... 🌿" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">🌱 Enviar Mensaje</button>
+      </form>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="footer-logo-svg" viewBox="0 0 80 58" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g transform="rotate(-25 22 38)">
+              <ellipse cx="22" cy="38" rx="11" ry="22" fill="#3d6b35"/>
+              <line x1="22" y1="17" x2="22" y2="58" stroke="#c4a355" stroke-width="1.3" stroke-linecap="round"/>
+              <line x1="22" y1="28" x2="13" y2="34" stroke="#c4a355" stroke-width="0.8" stroke-linecap="round"/>
+              <line x1="22" y1="36" x2="12" y2="42" stroke="#c4a355" stroke-width="0.8" stroke-linecap="round"/>
+              <line x1="22" y1="44" x2="14" y2="49" stroke="#c4a355" stroke-width="0.8" stroke-linecap="round"/>
+              <line x1="22" y1="28" x2="31" y2="34" stroke="#c4a355" stroke-width="0.8" stroke-linecap="round"/>
+              <line x1="22" y1="36" x2="32" y2="42" stroke="#c4a355" stroke-width="0.8" stroke-linecap="round"/>
+            </g>
+            <g transform="rotate(25 58 38)">
+              <ellipse cx="58" cy="38" rx="11" ry="22" fill="#3d6b35"/>
+              <line x1="58" y1="17" x2="58" y2="58" stroke="#c4a355" stroke-width="1.3" stroke-linecap="round"/>
+              <line x1="58" y1="28" x2="49" y2="34" stroke="#c4a355" stroke-width="0.8" stroke-linecap="round"/>
+              <line x1="58" y1="36" x2="48" y2="42" stroke="#c4a355" stroke-width="0.8" stroke-linecap="round"/>
+              <line x1="58" y1="44" x2="50" y2="49" stroke="#c4a355" stroke-width="0.8" stroke-linecap="round"/>
+              <line x1="58" y1="28" x2="67" y2="34" stroke="#c4a355" stroke-width="0.8" stroke-linecap="round"/>
+              <line x1="58" y1="36" x2="68" y2="42" stroke="#c4a355" stroke-width="0.8" stroke-linecap="round"/>
+            </g>
+            <ellipse cx="40" cy="18" rx="9" ry="16" fill="#d4b5a0"/>
+            <line x1="40" y1="3" x2="40" y2="33" stroke="#b8906a" stroke-width="1.1" stroke-linecap="round"/>
+            <line x1="40" y1="11" x2="33" y2="17" stroke="#b8906a" stroke-width="0.8" stroke-linecap="round"/>
+            <line x1="40" y1="18" x2="32" y2="24" stroke="#b8906a" stroke-width="0.8" stroke-linecap="round"/>
+            <line x1="40" y1="11" x2="47" y2="17" stroke="#b8906a" stroke-width="0.8" stroke-linecap="round"/>
+            <line x1="40" y1="18" x2="48" y2="24" stroke="#b8906a" stroke-width="0.8" stroke-linecap="round"/>
+          </svg>
+          <span>Molinillo</span>
+        </div>
+        <div class="footer-tagline">Café · Plantas · & Más 🌿</div>
+      </div>
+      <nav class="footer-nav" aria-label="Navegación pie de página">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#menu">Menú</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <div class="social-links">
+        <a href="https://www.instagram.com/molinillo_cafeplantas_y_mas/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">📸</a>
+        <a href="#contacto" class="social-link" aria-label="WhatsApp">💬</a>
+        <a href="#ubicacion" class="social-link" aria-label="Ubicación">📍</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Molinillo Café, Plantas & Más · Hecho con 💚 y mucho café</p>
+    </div>
+  </footer>
+
+  <script src="./molinillo.js"></script>
+</body>
+</html>

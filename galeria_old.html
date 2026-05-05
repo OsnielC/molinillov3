@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Galería completa de Molinillo — Café, Plantas & Más. Conoce nuestro espacio, platillos y plantas." />
+  <title>Galería — Molinillo Café, Plantas & Más</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Variables ── */
+    :root {
+      --verde-oscuro:  #1a3a1a;
+      --verde-musgo:   #3d6b35;
+      --verde-lima:    rgb(145, 151, 103);
+      --verde-menta:   #a8d89a;
+      --cafe-oscuro:   #3b1f0e;
+      --cafe-medio:    #7c4a1e;
+      --cafe-latte:    #c8935a;
+      --crema:         #f5ead7;
+      --crema-oscura:  #e8d5b5;
+      --terracota:     #c75b3a;
+      --amarillo-sol:  #f5c842;
+      --blanco:        #ffffff;
+      --font-display: 'Playfair Display', serif;
+      --font-body:    'Lato', sans-serif;
+      --font-accent:  'Caveat', cursive;
+      --radius-xl:    100px;
+    }
+
+    *, *::before, *::after {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: #0f1a0f;
+      color: var(--crema);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ── NAVBAR ── */
+    .gal-nav {
+      position: fixed;
+      top: 0; width: 100%;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      background: rgba(15, 26, 15, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--verde-lima);
+    }
+
+    .gal-nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .gal-nav-logo img {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--verde-lima);
+    }
+
+    .gal-nav-logo span {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 900;
+      font-style: italic;
+      color: var(--crema);
+    }
+
+    .gal-nav-back {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--verde-lima);
+      border: 1.5px solid rgba(145,151,103,0.4);
+      padding: 8px 20px;
+      border-radius: var(--radius-xl);
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .gal-nav-back:hover {
+      background: rgba(145,151,103,0.15);
+      border-color: var(--verde-lima);
+    }
+
+    /* ── HERO ── */
+    .gal-hero {
+      padding-top: 68px;
+      min-height: 40vh;
+      background: linear-gradient(160deg, #1a2a1a 0%, #2a2e1a 50%, var(--cafe-oscuro) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gal-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg, transparent, transparent 60px,
+        rgba(145,151,103,0.04) 60px, rgba(145,151,103,0.04) 120px
+      );
+    }
+
+    .gal-hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 60px 20px 50px;
+    }
+
+    .gal-hero-tag {
+      display: inline-block;
+      background: var(--verde-lima);
+      color: var(--verde-oscuro);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: var(--radius-xl);
+      margin-bottom: 20px;
+    }
+
+    .gal-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--crema);
+    }
+
+    .gal-hero-title em {
+      color: var(--verde-lima);
+      font-style: italic;
+    }
+
+    .gal-hero-sub {
+      font-family: var(--font-accent);
+      font-size: 1.3rem;
+      color: var(--crema-oscura);
+      opacity: 0.8;
+      margin-top: 14px;
+    }
+
+    /* ── CATEGORIES FILTER ── */
+    .gal-filter {
+      position: sticky;
+      top: 68px;
+      z-index: 50;
+      background: rgba(15,26,15,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(145,151,103,0.2);
+      padding: 16px 5%;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      font-family: var(--font-body);
+      background: transparent;
+      color: rgba(245,234,215,0.55);
+      border: 1.5px solid rgba(145,151,103,0.25);
+      padding: 8px 22px;
+      border-radius: var(--radius-xl);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--verde-lima);
+      color: var(--crema);
+    }
+
+    .filter-btn.active {
+      background: var(--verde-lima);
+      color: var(--verde-oscuro);
+      border-color: var(--verde-lima);
+    }
+
+    /* ── MASONRY GALLERY ── */
+    .gal-main {
+      padding: 48px 4% 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Category sections */
+    .gal-section {
+      margin-bottom: 72px;
+    }
+
+    .gal-section-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .gal-section-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--crema);
+    }
+
+    .gal-section-title span {
+      color: var(--verde-lima);
+      font-style: italic;
+    }
+
+    .gal-section-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(145,151,103,0.25);
+    }
+
+    .gal-section-count {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--verde-lima);
+      opacity: 0.7;
+    }
+
+    /* Masonry grid */
+    .gal-masonry {
+      columns: 3;
+      column-gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .gal-masonry { columns: 2; }
+    }
+    @media (max-width: 520px) {
+      .gal-masonry { columns: 1; }
+    }
+
+    .gal-photo {
+      break-inside: avoid;
+      margin-bottom: 14px;
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      background: #1a2a1a;
+      cursor: pointer;
+    }
+
+    .gal-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .gal-photo:hover img {
+      transform: scale(1.04);
+    }
+
+    .gal-photo-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(15,26,15,0.9) 0%, transparent 100%);
+      padding: 28px 16px 14px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gal-photo:hover .gal-photo-caption {
+      opacity: 1;
+    }
+
+    .gal-photo-caption span {
+      font-family: var(--font-accent);
+      font-size: 1.05rem;
+      color: var(--crema);
+    }
+
+    /* ── FEATURED (wide) photos ── */
+    .gal-featured-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .gal-featured-row.reverse {
+      grid-template-columns: 1fr 2fr;
+    }
+
+    .gal-wide {
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      background: #1a2a1a;
+      cursor: pointer;
+    }
+
+    .gal-wide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+      min-height: 320px;
+    }
+
+    .gal-wide:hover img { transform: scale(1.04); }
+
+    .gal-wide .gal-photo-caption {
+      opacity: 0;
+    }
+    .gal-wide:hover .gal-photo-caption {
+      opacity: 1;
+    }
+
+    @media (max-width: 700px) {
+      .gal-featured-row,
+      .gal-featured-row.reverse {
+        grid-template-columns: 1fr;
+      }
+      .gal-wide img { min-height: 200px; }
+    }
+
+    /* ── LIGHTBOX ── */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(5, 10, 5, 0.95);
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+
+    #lightbox.open {
+      display: flex;
+    }
+
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 10px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      cursor: default;
+    }
+
+    .lb-close {
+      position: absolute;
+      top: 20px; right: 24px;
+      font-size: 2rem;
+      color: var(--crema);
+      opacity: 0.7;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+    .lb-close:hover { opacity: 1; }
+
+    .lb-prev, .lb-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(145,151,103,0.2);
+      border: 1.5px solid rgba(145,151,103,0.4);
+      color: var(--crema);
+      font-size: 1.5rem;
+      padding: 14px 18px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .lb-prev { left: 20px; }
+    .lb-next { right: 20px; }
+    .lb-prev:hover, .lb-next:hover {
+      background: rgba(145,151,103,0.45);
+    }
+
+    .lb-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-accent);
+      font-size: 1.2rem;
+      color: var(--crema);
+      opacity: 0.8;
+      white-space: nowrap;
+    }
+
+    /* ── INSTAGRAM CTA ── */
+    .gal-ig-cta {
+      text-align: center;
+      padding: 60px 5%;
+      background: linear-gradient(160deg, #1a2a1a, #2a2e1a);
+      border-top: 1px solid rgba(145,151,103,0.2);
+    }
+
+    .gal-ig-cta h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--crema);
+      margin-bottom: 12px;
+    }
+
+    .gal-ig-cta h3 em { color: var(--verde-lima); font-style: italic; }
+
+    .gal-ig-cta p {
+      font-family: var(--font-accent);
+      font-size: 1.2rem;
+      color: rgba(245,234,215,0.65);
+      margin-bottom: 28px;
+    }
+
+    .btn-ig {
+      display: inline-block;
+      background: var(--verde-lima);
+      color: var(--verde-oscuro);
+      padding: 14px 36px;
+      border-radius: var(--radius-xl);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 28px rgba(145,151,103,0.4);
+      margin: 0 8px 12px;
+    }
+
+    .btn-ig:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(145,151,103,0.55);
+    }
+
+    .btn-back {
+      display: inline-block;
+      background: transparent;
+      color: var(--verde-lima);
+      padding: 13px 34px;
+      border-radius: var(--radius-xl);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 2px solid rgba(145,151,103,0.4);
+      transition: border-color 0.2s, background 0.2s;
+      margin: 0 8px 12px;
+    }
+    .btn-back:hover {
+      border-color: var(--verde-lima);
+      background: rgba(145,151,103,0.12);
+    }
+
+    /* ── FOOTER ── */
+    .gal-footer {
+      background: #080f08;
+      text-align: center;
+      padding: 28px 5%;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      font-size: 0.8rem;
+      color: rgba(245,234,215,0.3);
+      letter-spacing: 1px;
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="gal-nav">
+    <a href="./index.html" class="gal-nav-logo">
+      <img src="./images/logo.jpg" alt="Molinillo" />
+      <span>Molinillo</span>
+    </a>
+    <a href="./index.html" class="gal-nav-back">← Regresar</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="gal-hero">
+    <div class="gal-hero-inner">
+      <div class="gal-hero-tag">📷 Galería completa</div>
+      <h1 class="gal-hero-title">Vive la experiencia<br><em>Molinillo</em></h1>
+      <p class="gal-hero-sub">Cada imagen cuenta una historia de plantas, café y pasión 🌿</p>
+    </div>
+  </div>
+
+  <!-- FILTROS -->
+  <div class="gal-filter">
+    <button class="filter-btn active" data-filter="all">🌿 Todo</button>
+    <button class="filter-btn" data-filter="espacio">🏡 Espacio</button>
+    <button class="filter-btn" data-filter="plantas">🌵 Plantas</button>
+    <button class="filter-btn" data-filter="cafe">☕ Café & Bebidas</button>
+    <button class="filter-btn" data-filter="comida">🍽️ Comida</button>
+  </div>
+
+  <!-- GALERÍA PRINCIPAL -->
+  <main class="gal-main">
+
+    <!-- SECCIÓN: NUESTRO ESPACIO -->
+    <div class="gal-section reveal" data-category="espacio">
+      <div class="gal-section-header">
+        <h2 class="gal-section-title">Nuestro <span>Espacio</span></h2>
+        <div class="gal-section-line"></div>
+        <span class="gal-section-count">Ambiente & Decoración</span>
+      </div>
+
+      <!-- Fila destacada -->
+      <div class="gal-featured-row">
+        <div class="gal-wide" data-src="./images/DSC_5312.JPG" data-caption="Nuestro Espacio">
+          <img src="./images/DSC_5312.JPG" alt="Interior de Molinillo Café" loading="lazy" />
+          <div class="gal-photo-caption"><span>El corazón de Molinillo 🌿</span></div>
+        </div>
+        <div class="gal-wide" data-src="./images/DSC_5209.JPG" data-caption="Plantas & Decoración">
+          <img src="./images/DSC_5209.JPG" alt="Decoración con plantas" loading="lazy" />
+          <div class="gal-photo-caption"><span>Plantas seleccionadas con esmero</span></div>
+        </div>
+      </div>
+
+      <!-- Masonry -->
+      <div class="gal-masonry">
+        <div class="gal-photo" data-src="./images/DSC_5247.JPG" data-caption="Plantas Tropicales">
+          <img src="./images/DSC_5247.JPG" alt="Plantas tropicales" loading="lazy" />
+          <div class="gal-photo-caption"><span>Plantas tropicales 🌴</span></div>
+        </div>
+        <div class="gal-photo" data-src="./images/DSC_5288.JPG" data-caption="Plantas de Interior">
+          <img src="./images/DSC_5288.JPG" alt="Plantas de interior" loading="lazy" />
+          <div class="gal-photo-caption"><span>Plantas de interior 🪴</span></div>
+        </div>
+        <div class="gal-photo" data-src="./images/DSC_5253.JPG" data-caption="Arreglos Florales">
+          <img src="./images/DSC_5253.JPG" alt="Arreglos florales" loading="lazy" />
+          <div class="gal-photo-caption"><span>Arreglos florales 🌸</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN: PLANTAS -->
+    <div class="gal-section reveal" data-category="plantas">
+      <div class="gal-section-header">
+        <h2 class="gal-section-title">Nuestras <span>Plantas</span></h2>
+        <div class="gal-section-line"></div>
+        <span class="gal-section-count">Selección & Variedades</span>
+      </div>
+
+      <div class="gal-featured-row reverse">
+        <div class="gal-wide" data-src="./images/DSC_5209.JPG" data-caption="Cactus & Suculentas">
+          <img src="./images/DSC_5209.JPG" alt="Cactus y suculentas" loading="lazy" />
+          <div class="gal-photo-caption"><span>Cactus & Suculentas 🌵</span></div>
+        </div>
+        <div class="gal-wide" data-src="./images/DSC_5253.JPG" data-caption="Arreglos & Florales">
+          <img src="./images/DSC_5253.JPG" alt="Arreglos florales" loading="lazy" />
+          <div class="gal-photo-caption"><span>Arreglos florales para llevar 🌺</span></div>
+        </div>
+      </div>
+
+      <div class="gal-masonry">
+        <div class="gal-photo" data-src="./images/DSC_5247.JPG" data-caption="Tropicales">
+          <img src="./images/DSC_5247.JPG" alt="Plantas tropicales" loading="lazy" />
+          <div class="gal-photo-caption"><span>Tropicales 🌿</span></div>
+        </div>
+        <div class="gal-photo" data-src="./images/DSC_5288.JPG" data-caption="Interior">
+          <img src="./images/DSC_5288.JPG" alt="Plantas de interior" loading="lazy" />
+          <div class="gal-photo-caption"><span>De interior 🪴</span></div>
+        </div>
+        <div class="gal-photo" data-src="./images/DSC_5312.JPG" data-caption="Ambiente verde">
+          <img src="./images/DSC_5312.JPG" alt="Ambiente verde" loading="lazy" />
+          <div class="gal-photo-caption"><span>Rodeados de vida 💚</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN: CAFÉ & BEBIDAS -->
+    <div class="gal-section reveal" data-category="cafe">
+      <div class="gal-section-header">
+        <h2 class="gal-section-title">Café & <span>Bebidas</span></h2>
+        <div class="gal-section-line"></div>
+        <span class="gal-section-count">Talea de Castro & Más</span>
+      </div>
+
+      <div class="gal-featured-row">
+        <div class="gal-wide" data-src="./images/DSC_5281.JPG" data-caption="Café de Especialidad">
+          <img src="./images/DSC_5281.JPG" alt="Café de especialidad" loading="lazy" />
+          <div class="gal-photo-caption"><span>Café de Talea de Castro ☕</span></div>
+        </div>
+        <div class="gal-wide" data-src="./images/DSC_5292.JPG" data-caption="Infusiones & Tés">
+          <img src="./images/DSC_5292.JPG" alt="Infusiones y tés" loading="lazy" />
+          <div class="gal-photo-caption"><span>Infusiones artesanales 🫖</span></div>
+        </div>
+      </div>
+
+      <div class="gal-masonry">
+        <div class="gal-photo" data-src="./images/DSC_5281.JPG" data-caption="Café">
+          <img src="./images/DSC_5281.JPG" alt="Café" loading="lazy" />
+          <div class="gal-photo-caption"><span>El mejor café ☕</span></div>
+        </div>
+        <div class="gal-photo" data-src="./images/DSC_5292.JPG" data-caption="Bebidas">
+          <img src="./images/DSC_5292.JPG" alt="Bebidas" loading="lazy" />
+          <div class="gal-photo-caption"><span>Bebidas artesanales 🌿</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN: COMIDA -->
+    <div class="gal-section reveal" data-category="comida">
+      <div class="gal-section-header">
+        <h2 class="gal-section-title">Nuestra <span>Cocina</span></h2>
+        <div class="gal-section-line"></div>
+        <span class="gal-section-count">Chef Alejandra</span>
+      </div>
+
+      <div class="gal-masonry">
+        <div class="gal-photo" data-src="./images/DSC_5312.JPG" data-caption="Nuestro espacio gastronómico">
+          <img src="./images/DSC_5312.JPG" alt="Espacio gastronómico" loading="lazy" />
+          <div class="gal-photo-caption"><span>Gastronomía con amor 🍽️</span></div>
+        </div>
+        <div class="gal-photo" data-src="./images/DSC_5247.JPG" data-caption="Platillos frescos">
+          <img src="./images/DSC_5247.JPG" alt="Platillos frescos" loading="lazy" />
+          <div class="gal-photo-caption"><span>Ingredientes frescos 🌱</span></div>
+        </div>
+        <div class="gal-photo" data-src="./images/DSC_5253.JPG" data-caption="Presentación">
+          <img src="./images/DSC_5253.JPG" alt="Presentación de platillos" loading="lazy" />
+          <div class="gal-photo-caption"><span>Cada detalle importa ✨</span></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- INSTAGRAM CTA -->
+  <div class="gal-ig-cta">
+    <h3>¿Quieres ver <em>más</em>?</h3>
+    <p>Síguenos en Instagram para ver nuestras últimas fotos, promociones y novedades 🌿</p>
+    <a href="https://www.instagram.com/molinillo_cafeplantas_y_mas/" target="_blank" rel="noopener noreferrer" class="btn-ig">📸 Seguirnos en Instagram</a>
+    <a href="./molinillo.html" class="btn-back">← Volver al inicio</a>
+  </div>
+
+  <footer class="gal-footer">
+    <p>© 2025 Molinillo Café, Plantas & Más · Calicanto 11, San Antonio de la Cal, Oaxaca · 🌿</p>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <button class="lb-close" id="lbClose" aria-label="Cerrar">✕</button>
+    <button class="lb-prev"  id="lbPrev"  aria-label="Anterior">‹</button>
+    <img id="lbImg" src="" alt="Imagen ampliada" />
+    <button class="lb-next"  id="lbNext"  aria-label="Siguiente">›</button>
+    <div class="lb-caption" id="lbCaption"></div>
+  </div>
+
+  <script>
+    /* ── Scroll Reveal ── */
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 100);
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    /* ── Lightbox ── */
+    const lightbox  = document.getElementById('lightbox');
+    const lbImg     = document.getElementById('lbImg');
+    const lbCaption = document.getElementById('lbCaption');
+    const lbClose   = document.getElementById('lbClose');
+    const lbPrev    = document.getElementById('lbPrev');
+    const lbNext    = document.getElementById('lbNext');
+
+    // Collect all clickable photos in order
+    const photos = Array.from(document.querySelectorAll('.gal-photo[data-src], .gal-wide[data-src]'));
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      const el = photos[index];
+      lbImg.src       = el.dataset.src;
+      lbCaption.textContent = el.dataset.caption || '';
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function navigate(dir) {
+      currentIndex = (currentIndex + dir + photos.length) % photos.length;
+      const el = photos[currentIndex];
+      lbImg.src       = el.dataset.src;
+      lbCaption.textContent = el.dataset.caption || '';
+    }
+
+    photos.forEach((el, i) => {
+      el.addEventListener('click', () => openLightbox(i));
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev .addEventListener('click', (e) => { e.stopPropagation(); navigate(-1); });
+    lbNext .addEventListener('click', (e) => { e.stopPropagation(); navigate(+1); });
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape')     closeLightbox();
+      if (e.key === 'ArrowLeft')  navigate(-1);
+      if (e.key === 'ArrowRight') navigate(+1);
+    });
+
+    /* ── Category Filter ── */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const sections   = document.querySelectorAll('.gal-section');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const cat = btn.dataset.filter;
+        sections.forEach(sec => {
+          if (cat === 'all' || sec.dataset.category === cat) {
+            sec.style.display = '';
+          } else {
+            sec.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
